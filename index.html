@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Inter:wght@100..900&family=Madimi+One&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Protest+Strike&display=swap" rel="stylesheet">    
+    <title>Encriptador</title>
+
+</head>
+<body>
+    <h1 class="title">
+        asofimp
+    </h1>
+    
+    <div class="container">
+        <main class="container-left">
+            <div class="input-container">
+                <textarea id="textarea" placeholder="Ingrese texto aquí" name="comment" class="input" type="text" id="comment" rows="6" cols="50"></textarea>
+            </div>
+            <div class="instruct-container">
+                <img class="img-instruct" src="./public/alarma.png" alt="">
+                <p class="p-instruct">Solo se permiten texto en minusculas y sin acento</p>
+            </div>
+            <div class="botones">
+                <button onclick="Encriptar()" class="encriptar">
+                    Encriptar
+                </button>
+                <button onclick="Desencriptar()" class="descencriptar">
+                    Desencriptar
+                </button>
+            </div>
+            
+        </main>
+        <aside class="container-right">
+            <p id="frase" class="frase">
+            </p>
+
+            <div class="sintexto-container">
+                <img id="imagen" class="sintexto-img" src="" alt="">
+                <h3 id="frase-inst" class="sintexto-frase"></h3>
+                <p id="p-inst" class="sintexto-instruc"></p>
+            </div>
+        </aside>
+    </div>
+    <script src="app.js" defer></script>
+</body>
+</html>
