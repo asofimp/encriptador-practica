@@ -30,39 +30,53 @@ function Encriptar(){
     asignarImg('#imagen', './');
 
     let texto = document.getElementById('textarea').value;
-    let textoArreglo = texto.split('');
-    let textEncriptado = '';
-    
-    textoArreglo.map(element => {
-        if(element=== "a"){
-            textEncriptado += 'ai';
-        }else if(element === 'e'){
-            textEncriptado += 'enter';
-        }else if(element === 'i'){
-            textEncriptado += 'imes';
-        }else if(element === 'o'){
-            textEncriptado += 'ober';
-        }else if(element === 'u'){
-            textEncriptado += 'ufat';
-        }else{
-            textEncriptado += element
-        }
-    });
 
-    console.log('entro' ,textEncriptado)
-    asignarTextoElemento('frase', `${textEncriptado}`)
+    let textoEncriptado = TextEncriptado(texto); 
+
+    asignarTextoElemento('frase', textoEncriptado); 
+    asignarTextoElemento('textarea', ''); 
+    console.log('entro' ,textoEncriptado)
+
 }
+
+
+function TextEncriptado(textEncriptado) {
+    let matrizText = [ ["e", "enter"], ["i", "imes"], ["a", "ai"],["o", "ober"], ["u", "ufat"]];
+    textEncriptado = textEncriptado.toLowerCase();
+
+    for (let i = 0; i < matrizText.length; i++) { 
+        if (textEncriptado.includes(matrizText[i][0])) {
+            textEncriptado = textEncriptado.replaceAll(matrizText[i][0], matrizText[i][1]);
+        }
+    }
+  
+    return textEncriptado;
+}
+
 
 function Desencriptar(){
     asignarTextoElemento('frase-inst', '')
     asignarTextoElemento('p-inst','')
     asignarImg('#imagen', './');
 
-    let textDesencriptado = '';
-    let textoD = document.getElementById('textarea').value;
-    let caracter = textoD.split('')
-
-
-    console.log('entro' , textDesencriptado)
+    let text = document.getElementById('textarea').value;
+    let textDesencriptado = TextDesencriptado(text);
+    
     asignarTextoElemento('frase', `${textDesencriptado}`)
 }
+
+function TextDesencriptado(textDesencriptado){
+    let matrizText = [["a", "ai"], ["e", "enter"], ["i", "imes"], ["o", "ober"], ["u", "ufat"]];
+    textDesencriptado = textDesencriptado.toLowerCase();
+
+    for (let i = 0; i < matrizText.length; i++) { 
+        if (textDesencriptado.includes(matrizText[i][0])) {
+            textDesencriptado = textDesencriptado.replaceAll(matrizText[i][1], matrizText[i][0]);
+        }
+    }
+    window.log()
+    return textDesencriptado;
+}
+
+
+//replace all me ayuda a reemplazar todos los textos que se puedan incluir en la matriz
